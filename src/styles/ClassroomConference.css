@@ -1,0 +1,1794 @@
+/* =========================================================
+   PCIS VIRTUAL CLASSROOM
+   Beautiful modern classroom conference design
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.classroom-page {
+  min-height: 100vh;
+  background: #f4f7f5;
+  color: #1f2937;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.classroom-topbar {
+  min-height: 88px;
+  padding: 18px 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8e5;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.classroom-topbar h1 {
+  margin: 4px 0 2px;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  color: #146c43;
+}
+
+.classroom-topbar p {
+  margin: 0;
+  color: #718078;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.classroom-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #198754;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.classroom-back-link:hover {
+  color: #0f5132;
+  transform: translateX(-3px);
+}
+
+/* =========================================================
+   LIVE BADGE
+   ========================================================= */
+
+.classroom-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 15px;
+
+  border-radius: 999px;
+
+  background: #fff0f0;
+  color: #c03939;
+
+  border: 1px solid #f3caca;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+
+  white-space: nowrap;
+
+  animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(201, 76, 76, 0.15);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px rgba(201, 76, 76, 0);
+  }
+}
+
+/* =========================================================
+   MAIN CLASSROOM CONTENT
+   ========================================================= */
+
+.classroom-content {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+
+  padding: 28px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 24px;
+}
+
+/* =========================================================
+   VIDEO AREA
+   ========================================================= */
+
+.main-video-area {
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8e5;
+  border-radius: 22px;
+
+  padding: 18px;
+
+  box-shadow:
+    0 12px 35px rgba(25, 135, 84, 0.08);
+}
+
+.video-card {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #24332c 0%,
+      #111816 48%,
+      #080c0a 100%
+    );
+
+  border-radius: 18px;
+
+  min-height: 480px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.main-video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+
+  object-fit: cover;
+
+  background: #101513;
+}
+
+/* =========================================================
+   VIDEO NAME
+   ========================================================= */
+
+.video-name {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+
+  padding: 8px 13px;
+
+  border-radius: 9px;
+
+  background: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+
+  backdrop-filter: blur(8px);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.host-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+
+  padding: 7px 11px;
+
+  border-radius: 8px;
+
+  background: #198754;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+
+  box-shadow: 0 5px 15px rgba(25, 135, 84, 0.35);
+}
+
+/* =========================================================
+   CLASSROOM CONTROLS
+   ========================================================= */
+
+.classroom-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  padding: 18px 6px 3px;
+}
+
+.control-button,
+.leave-button {
+  border: none;
+
+  min-height: 44px;
+
+  padding: 0 17px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.control-button {
+  background: #edf4f0;
+  color: #24513b;
+
+  border: 1px solid #d9e7df;
+}
+
+.control-button:hover {
+  background: #dfeee6;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 15px rgba(25, 135, 84, 0.12);
+}
+
+.leave-button {
+  background: #c94c4c;
+  color: #ffffff;
+
+  padding-left: 21px;
+  padding-right: 21px;
+}
+
+.leave-button:hover {
+  background: #a83232;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(168, 50, 50, 0.25);
+}
+
+/* =========================================================
+   PARTICIPANTS
+   ========================================================= */
+
+.participants-area {
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8e5;
+  border-radius: 22px;
+
+  padding: 20px;
+
+  box-shadow:
+    0 12px 35px rgba(25, 135, 84, 0.07);
+}
+
+.participants-area h2 {
+  margin: 0 0 18px;
+
+  color: #173d2b;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.participants-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 13px;
+}
+
+.participant-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #f7faf8;
+
+  border: 1px solid #e1ebe5;
+  border-radius: 15px;
+
+  padding: 10px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.participant-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(25, 135, 84, 0.09);
+}
+
+.participant-placeholder {
+  min-height: 145px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e9f4ee,
+      #dcece4
+    );
+
+  color: #198754;
+
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.participant-name {
+  padding: 11px 4px 3px;
+
+  color: #34443b;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   ROOM INFORMATION
+   ========================================================= */
+
+.room-information {
+  margin-top: 20px;
+
+  padding: 14px;
+
+  background: #f8faf9;
+
+  border: 1px solid #e2ebe6;
+
+  border-radius: 13px;
+
+  color: #66736c;
+
+  font-size: 11px;
+  line-height: 1.8;
+
+  word-break: break-word;
+}
+
+.room-information strong {
+  color: #24513b;
+}
+
+/* =========================================================
+   WAITING ROOM
+   ========================================================= */
+
+.waiting-room {
+  min-height: calc(100vh - 88px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+}
+
+/* =========================================================
+   LIVE LESSON CARD
+   ========================================================= */
+
+.live-lesson-card {
+  width: min(520px, 100%);
+
+  text-align: center;
+
+  padding: 42px 35px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eae5;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 20px 55px rgba(25, 135, 84, 0.11);
+}
+
+.live-icon {
+  width: 78px;
+  height: 78px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e8f4ed;
+
+  font-size: 32px;
+
+  box-shadow:
+    0 0 0 9px #f4faf6;
+}
+
+.live-lesson-card h2 {
+  margin: 0 0 8px;
+
+  color: #173d2b;
+
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.live-subject {
+  margin: 0 0 15px;
+
+  color: #198754;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.live-lesson-card p:not(.live-subject) {
+  margin: 8px 0;
+
+  color: #6b7771;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.live-lesson-card strong {
+  color: #273a30;
+}
+
+/* =========================================================
+   JOIN BUTTON
+   ========================================================= */
+
+.join-class-button {
+  width: 100%;
+
+  margin-top: 24px;
+
+  min-height: 52px;
+
+  border: none;
+  border-radius: 13px;
+
+  background: #198754;
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 24px rgba(25, 135, 84, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.join-class-button:hover {
+  background: #146c43;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 28px rgba(25, 135, 84, 0.27);
+}
+
+.join-class-button:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   WAITING CARD
+   ========================================================= */
+
+.waiting-card {
+  width: min(500px, 100%);
+
+  text-align: center;
+
+  padding: 45px 35px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e9e5;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.06);
+}
+
+.waiting-icon {
+  width: 76px;
+  height: 76px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f1f5f3;
+
+  font-size: 31px;
+}
+
+.waiting-card h2 {
+  margin: 0 0 10px;
+
+  color: #314239;
+
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.waiting-card p {
+  margin: 0;
+
+  color: #748078;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   ERRORS
+   ========================================================= */
+
+.classroom-error {
+  width: min(600px, calc(100% - 40px));
+
+  margin: 100px auto;
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  background: #fff0f0;
+  border: 1px solid #f1caca;
+
+  color: #a83232;
+
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.media-error {
+  margin-top: 15px;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  background: #fff4f4;
+
+  border: 1px solid #f1cccc;
+
+  color: #a83232;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.classroom-loading {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #198754;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.classroom-loading::after {
+  content: "";
+
+  width: 18px;
+  height: 18px;
+
+  margin-left: 10px;
+
+  border: 2px solid #dcebe2;
+  border-top-color: #198754;
+
+  border-radius: 50%;
+
+  animation: classroomSpin 0.8s linear infinite;
+}
+
+@keyframes classroomSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  .classroom-content {
+    grid-template-columns: 1fr;
+  }
+
+  .participants-area {
+    padding: 18px;
+  }
+
+  .participants-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .video-card,
+  .main-video {
+    min-height: 430px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .classroom-topbar {
+    min-height: auto;
+
+    padding: 15px 17px;
+
+    align-items: flex-start;
+  }
+
+  .classroom-topbar h1 {
+    font-size: 20px;
+  }
+
+  .classroom-topbar p {
+    font-size: 12px;
+  }
+
+  .classroom-live-badge {
+    padding: 7px 10px;
+
+    font-size: 10px;
+  }
+
+  .classroom-content {
+    padding: 13px;
+
+    gap: 13px;
+  }
+
+  .main-video-area,
+  .participants-area {
+    border-radius: 17px;
+    padding: 11px;
+  }
+
+  .video-card {
+    min-height: 330px;
+
+    border-radius: 13px;
+  }
+
+  .main-video {
+    min-height: 330px;
+  }
+
+  .video-name {
+    left: 11px;
+    bottom: 11px;
+
+    padding: 7px 10px;
+
+    font-size: 11px;
+  }
+
+  .host-badge {
+    top: 11px;
+    left: 11px;
+
+    padding: 6px 9px;
+
+    font-size: 9px;
+  }
+
+  .classroom-controls {
+    gap: 7px;
+
+    padding-top: 13px;
+  }
+
+  .control-button,
+  .leave-button {
+    min-height: 40px;
+
+    padding: 0 11px;
+
+    border-radius: 10px;
+
+    font-size: 11px;
+  }
+
+  .participants-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .participant-placeholder {
+    min-height: 120px;
+  }
+
+  .waiting-room {
+    min-height: calc(100vh - 75px);
+
+    padding: 25px 15px;
+  }
+
+  .live-lesson-card,
+  .waiting-card {
+    padding: 32px 22px;
+
+    border-radius: 20px;
+  }
+
+  .live-lesson-card h2 {
+    font-size: 22px;
+  }
+
+  .waiting-card h2 {
+    font-size: 20px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .classroom-topbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .classroom-live-badge {
+    align-self: flex-start;
+  }
+
+  .classroom-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .control-button,
+  .leave-button {
+    width: 100%;
+  }
+
+  .leave-button {
+    grid-column: 1 / -1;
+  }
+
+  .video-card,
+  .main-video {
+    min-height: 270px;
+  }
+}
+
+.participant-media-status {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.classroom-conference-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #0b0f19;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+}
+
+/* Header Styling */
+.classroom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #ffffff;
+  color: #0f172a;
+  border-bottom: 3px solid #16a34a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.class-title-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.class-title-badge h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+}
+
+.live-tag {
+  background-color: #dc2626;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background-color: #dc2626;
+}
+
+.status-indicator.connected {
+  background-color: #16a34a;
+  box-shadow: 0 0 8px rgba(22, 163, 74, 0.8);
+}
+
+/* Main Classroom Workspace */
+.classroom-body {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-and-sidebar {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.main-stage-container {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111827;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #16a34a;
+  position: relative;
+}
+
+.teacher-stage-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stage-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage-overlay-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(22, 163, 74, 0.9);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  display: flex;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hand-raised-indicator, .hand-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #ffffff;
+  color: #16a34a;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 2px solid #16a34a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar Gallery */
+.classroom-sidebar {
+  flex: 1;
+  min-width: 280px;
+  max-width: 340px;
+  background-color: #ffffff;
+  color: #0f172a;
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 2px solid #e2e8f0;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.student-gallery-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.student-card {
+  position: relative;
+  height: 140px;
+  background-color: #0f172a;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #16a34a;
+}
+
+.student-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.student-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* Slide-out Drawers */
+.drawer-panel {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 320px;
+  background-color: #ffffff;
+  color: #0f172a;
+  border-radius: 12px;
+  border: 2px solid #16a34a;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.drawer-header {
+  padding: 1rem;
+  background-color: #16a34a;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.chat-messages, .participants-list {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chat-msg {
+  background-color: #f1f5f9;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border-left: 4px solid #16a34a;
+}
+
+.msg-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.msg-text {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.chat-input-form {
+  display: flex;
+  padding: 0.75rem;
+  gap: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.chat-input-form input {
+  flex: 1;
+  border: 1px solid #cbd5e1;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.send-btn {
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.participant-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.p-role-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.teacher-tag {
+  background-color: #16a34a;
+  color: white;
+}
+
+.student-tag {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Green, White, and Red Toolbar */
+.classroom-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-top: 3px solid #16a34a;
+}
+
+.control-btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.green-btn {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+.green-btn:hover {
+  background-color: #15803d;
+}
+
+.off-btn {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.off-btn:hover {
+  background-color: #b91c1c;
+}
+
+.active-white-btn {
+  background-color: #ffffff;
+  color: #16a34a;
+  border: 2px solid #16a34a;
+}
+
+.end-class-btn, .leave-btn {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.end-class-btn:hover, .leave-btn:hover {
+  background-color: #b91c1c;
+}
+
+
+/* =========================================================
+   PCIS RESPONSIVE CLASSROOM IMPROVEMENTS
+   Desktop, tablet, mobile and small-phone support
+   Add this block at the VERY END of ClassroomConference.css
+   ========================================================= */
+
+/* Better sizing and scrolling on all devices */
+.classroom-conference-container {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.classroom-conference-container *,
+.classroom-conference-container *::before,
+.classroom-conference-container *::after {
+  box-sizing: border-box;
+}
+
+.classroom-header {
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+}
+
+.classroom-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+}
+
+.stage-and-sidebar {
+  min-height: 0;
+  min-width: 0;
+}
+
+.main-stage-container,
+.teacher-stage-card {
+  min-width: 0;
+  min-height: 0;
+}
+
+.stage-video,
+.student-video {
+  display: block;
+  max-width: 100%;
+  background: #101513;
+}
+
+.classroom-sidebar {
+  min-height: 0;
+  min-width: 0;
+}
+
+.student-gallery-list,
+.chat-messages,
+.participants-list {
+  min-height: 0;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.classroom-conference-container button,
+.classroom-conference-container input {
+  max-width: 100%;
+  font: inherit;
+}
+
+.classroom-conference-container button {
+  touch-action: manipulation;
+}
+
+/* Keep long names and messages inside their containers */
+.class-title-badge,
+.class-title-badge h1,
+.sidebar-header,
+.participant-item,
+.chat-msg,
+.msg-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.msg-text {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.drawer-panel {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.chat-input-form input {
+  min-width: 0;
+}
+
+/* =========================================================
+   LARGE DESKTOPS
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .stage-and-sidebar {
+    padding: 18px;
+    gap: 18px;
+  }
+
+  .main-stage-container {
+    flex: 1 1 auto;
+  }
+
+  .classroom-sidebar {
+    flex: 0 0 300px;
+    width: 300px;
+    max-width: 300px;
+  }
+
+  .student-card {
+    height: 150px;
+    flex: 0 0 auto;
+  }
+
+  .stage-overlay-badge {
+    max-width: calc(100% - 32px);
+    overflow-wrap: anywhere;
+  }
+}
+
+/* =========================================================
+   TABLETS AND SMALL LAPTOPS
+   ========================================================= */
+
+@media (min-width: 701px) and (max-width: 1199px) {
+  .classroom-header {
+    padding: 12px 18px;
+  }
+
+  .class-title-badge {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .class-title-badge h1 {
+    font-size: 1.1rem;
+  }
+
+  .stage-and-sidebar {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .main-stage-container {
+    flex: 1 1 0;
+  }
+
+  .classroom-sidebar {
+    flex: 0 0 245px;
+    width: 245px;
+    min-width: 0;
+    max-width: 245px;
+    padding: 12px;
+  }
+
+  .student-card {
+    height: 115px;
+    flex: 0 0 auto;
+  }
+
+  .stage-overlay-badge {
+    left: 10px;
+    bottom: 10px;
+    padding: 7px 10px;
+    font-size: 0.85rem;
+    max-width: calc(100% - 20px);
+  }
+
+  .classroom-conference-container .classroom-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .control-btn {
+    min-height: 44px;
+    padding: 10px 13px;
+  }
+
+  .drawer-panel {
+    right: 12px;
+    top: 12px;
+    bottom: 12px;
+    width: min(350px, calc(100% - 24px));
+  }
+}
+
+/* =========================================================
+   MOBILE PHONES
+   Make the teacher's stage the main focus
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .classroom-conference-container {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .classroom-header {
+    padding: 10px 12px;
+    gap: 8px;
+    border-bottom-width: 2px;
+  }
+
+  .class-title-badge {
+    flex: 1 1 180px;
+    gap: 7px;
+  }
+
+  .class-title-badge h1 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .live-tag {
+    font-size: 0.65rem;
+    padding: 4px 7px;
+  }
+
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+  }
+
+  .classroom-body {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .stage-and-sidebar {
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  /*
+    The main stage receives most of the available height.
+    This keeps the teacher prominent on portrait phones.
+  */
+  .main-stage-container {
+    order: 1;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    border-width: 2px;
+    border-radius: 12px;
+  }
+
+  .teacher-stage-card {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .stage-video {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /*
+    Keep student previews in a compact horizontal strip
+    instead of allowing them to shrink the teacher's video.
+  */
+  .classroom-sidebar {
+    order: 2;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    max-height: 145px;
+    padding: 8px;
+    gap: 7px;
+    border-radius: 12px;
+    border-width: 1px;
+  }
+
+  .sidebar-header h3 {
+    font-size: 0.9rem;
+  }
+
+  .student-gallery-list {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    gap: 8px;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 3px;
+  }
+
+  .student-card {
+    flex: 0 0 110px;
+    width: 110px;
+    height: 78px;
+    min-height: 0;
+    border-width: 1px;
+    border-radius: 8px;
+  }
+
+  .student-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .student-badge {
+    left: 4px;
+    bottom: 4px;
+    max-width: calc(100% - 8px);
+    padding: 2px 5px;
+    font-size: 0.65rem;
+    overflow-wrap: anywhere;
+  }
+
+  .stage-overlay-badge {
+    left: 8px;
+    bottom: 8px;
+    max-width: calc(100% - 16px);
+    padding: 6px 9px;
+    gap: 5px;
+    border-radius: 7px;
+    font-size: 0.78rem;
+    overflow-wrap: anywhere;
+  }
+
+  .hand-raised-indicator,
+  .hand-badge {
+    top: 8px;
+    right: 8px;
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    border-width: 1px;
+  }
+
+  /* Touch-friendly classroom toolbar */
+  .classroom-conference-container .classroom-controls {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 8px;
+    padding-bottom: max(9px, env(safe-area-inset-bottom));
+    border-top-width: 2px;
+  }
+
+  .control-btn {
+    min-height: 44px;
+    padding: 10px 12px;
+    border-radius: 9px;
+    font-size: 0.8rem;
+    white-space: normal;
+  }
+
+  /* Drawers fit the phone instead of extending off-screen */
+  .drawer-panel {
+    position: absolute;
+    z-index: 100;
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: min(360px, calc(100% - 16px));
+    max-width: none;
+    border-radius: 12px;
+  }
+
+  .drawer-header {
+    flex: 0 0 auto;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .drawer-header h3 {
+    font-size: 0.95rem;
+  }
+
+  .close-btn {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .chat-messages,
+  .participants-list {
+    padding: 10px;
+    gap: 9px;
+  }
+
+  .chat-msg {
+    padding: 9px 10px;
+  }
+
+  .msg-header {
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  .msg-text {
+    font-size: 0.85rem;
+  }
+
+  .chat-input-form {
+    flex: 0 0 auto;
+    padding: 9px;
+    gap: 7px;
+    padding-bottom: max(9px, env(safe-area-inset-bottom));
+  }
+
+  .chat-input-form input {
+    width: 0;
+    min-height: 42px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .send-btn {
+    min-width: 60px;
+    min-height: 42px;
+    padding: 8px 12px;
+  }
+
+  .participant-item {
+    gap: 8px;
+    padding: 10px 6px;
+    font-size: 0.85rem;
+  }
+
+  .p-role-tag {
+    flex-shrink: 0;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .classroom-header {
+    padding: 8px 10px;
+  }
+
+  .class-title-badge {
+    flex-basis: 100%;
+  }
+
+  .class-title-badge h1 {
+    font-size: 0.94rem;
+  }
+
+  .stage-and-sidebar {
+    padding: 6px;
+    gap: 6px;
+  }
+
+  .classroom-sidebar {
+    max-height: 125px;
+    padding: 6px;
+  }
+
+  .student-card {
+    flex-basis: 96px;
+    width: 96px;
+    height: 68px;
+  }
+
+  .classroom-conference-container .classroom-controls {
+    gap: 6px;
+    padding: 7px 5px;
+  }
+
+  .control-btn {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 44px;
+    padding: 9px 8px;
+    font-size: 0.75rem;
+  }
+
+  .drawer-panel {
+    top: 4px;
+    right: 4px;
+    bottom: 4px;
+    width: calc(100% - 8px);
+  }
+
+  .stage-overlay-badge {
+    font-size: 0.72rem;
+  }
+}
+
+/* =========================================================
+   LANDSCAPE PHONES
+   Preserve video space when the phone is rotated
+   ========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .classroom-header {
+    padding: 6px 12px;
+  }
+
+  .class-title-badge h1 {
+    font-size: 0.9rem;
+  }
+
+  .stage-and-sidebar {
+    flex-direction: row;
+    padding: 7px;
+    gap: 7px;
+  }
+
+  .main-stage-container {
+    order: 1;
+    flex: 1 1 auto;
+  }
+
+  .classroom-sidebar {
+    order: 2;
+    flex: 0 0 155px;
+    width: 155px;
+    max-width: 155px;
+    max-height: none;
+    padding: 7px;
+  }
+
+  .student-gallery-list {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .student-card {
+    flex: 0 0 75px;
+    width: 100%;
+    height: 75px;
+  }
+
+  .classroom-conference-container .classroom-controls {
+    padding: 5px 8px;
+    gap: 6px;
+  }
+
+  .control-btn {
+    min-height: 38px;
+    padding: 6px 10px;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .classroom-conference-container *,
+  .classroom-conference-container *::before,
+  .classroom-conference-container *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,428 @@
+/* =========================================================
+   PCIS VIRTUAL CLASSROOM
+   PRIMARY SCHOOL PAGE
+   GREEN + RED + WHITE THEME
+========================================================= */
+
+.primary-page {
+  min-height: 100vh;
+  background: #f5f8f6;
+  color: #173b2b;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.primary-header {
+  background: #198754;
+  color: white;
+
+  min-height: 78px;
+  padding: 15px 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.primary-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.primary-logo {
+  width: 48px;
+  height: 48px;
+
+  background: white;
+  color: #198754;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.primary-brand h1 {
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+
+.primary-brand p {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.primary-badge {
+  background: #c94c4c;
+  color: white;
+
+  padding: 9px 15px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.primary-main {
+  width: 90%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 35px 0 60px;
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.primary-back {
+  display: inline-block;
+
+  color: #198754;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  margin-bottom: 35px;
+}
+
+.primary-back:hover {
+  color: #a83232;
+  text-decoration: underline;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.primary-title {
+  text-align: center;
+
+  max-width: 750px;
+
+  margin: 0 auto 40px;
+}
+
+.primary-label {
+  display: inline-block;
+
+  color: #198754;
+  background: #e8f4ed;
+
+  padding: 7px 13px;
+
+  border-radius: 7px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+
+  margin-bottom: 13px;
+}
+
+.primary-title h2 {
+  color: #173b2b;
+
+  font-size: 40px;
+
+  line-height: 1.2;
+
+  margin-bottom: 13px;
+}
+
+.primary-title p {
+  color: #64748b;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   CLASS GRID
+========================= */
+
+.primary-class-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
+
+/* =========================
+   CLASS CARD
+========================= */
+
+.primary-class-card {
+  background: white;
+
+  border: 1px solid #dce7e1;
+
+  border-radius: 15px;
+
+  padding: 22px;
+
+  min-height: 175px;
+
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  box-shadow: 0 5px 18px rgba(25, 135, 84, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.primary-class-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #198754;
+
+  box-shadow:
+    0 12px 28px rgba(25, 135, 84, 0.12);
+}
+
+/* =========================
+   CLASS ICON
+========================= */
+
+.primary-class-icon {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 12px;
+
+  background: #e8f4ed;
+
+  color: #198754;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 19px;
+  font-weight: 900;
+
+  margin-bottom: 20px;
+}
+
+.primary-class-card:nth-child(even)
+.primary-class-icon {
+  background: #f9e8e8;
+  color: #a83232;
+}
+
+/* =========================
+   CLASS INFO
+========================= */
+
+.primary-class-info h3 {
+  color: #173b2b;
+
+  font-size: 19px;
+
+  margin-bottom: 6px;
+}
+
+.primary-class-info p {
+  color: #718096;
+
+  font-size: 12px;
+}
+
+/* =========================
+   ARROW
+========================= */
+
+.primary-class-arrow {
+  align-self: flex-end;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: #e8f4ed;
+
+  color: #198754;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.primary-class-card:hover
+.primary-class-arrow {
+  background: #198754;
+  color: white;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.primary-footer {
+  background: #146c43;
+
+  color: white;
+
+  padding: 22px 6%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  font-size: 12px;
+}
+
+.primary-footer span {
+  background: #c94c4c;
+
+  padding: 6px 10px;
+
+  border-radius: 6px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .primary-class-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .primary-title h2 {
+    font-size: 36px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 550px) {
+
+  .primary-header {
+    min-height: 70px;
+
+    padding: 12px 4%;
+  }
+
+  .primary-brand {
+    gap: 10px;
+  }
+
+  .primary-logo {
+    width: 42px;
+    height: 42px;
+
+    font-size: 13px;
+  }
+
+  .primary-brand h1 {
+    font-size: 13px;
+  }
+
+  .primary-brand p {
+    font-size: 10px;
+  }
+
+  .primary-badge {
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  .primary-main {
+    width: 92%;
+
+    padding-top: 25px;
+  }
+
+  .primary-back {
+    margin-bottom: 25px;
+  }
+
+  .primary-title {
+    margin-bottom: 30px;
+  }
+
+  .primary-title h2 {
+    font-size: 29px;
+  }
+
+  .primary-title p {
+    font-size: 13px;
+  }
+
+  .primary-class-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .primary-class-card {
+    min-height: 135px;
+
+    padding: 18px;
+  }
+
+  .primary-class-icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 12px;
+
+    font-size: 17px;
+  }
+
+  .primary-class-info h3 {
+    font-size: 17px;
+  }
+
+  .primary-footer {
+    flex-direction: column;
+
+    text-align: center;
+  }
+}

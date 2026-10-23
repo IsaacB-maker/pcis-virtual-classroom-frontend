@@ -1,0 +1,939 @@
+/* =========================================================
+   PCIS VIRTUAL CLASSROOM
+   TEACHER DASHBOARD
+   Green + Soft Red + White + Light Grey
+   Responsive Desktop / Tablet / Mobile
+   ========================================================= */
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+.teacher-dashboard {
+  min-height: 100vh;
+  background: #f4f6f5;
+  color: #263238;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.teacher-dashboard-header {
+  width: 100%;
+  min-height: 82px;
+  padding: 20px 45px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  background: #198754;
+  color: #ffffff;
+
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-dashboard-header > div:first-child {
+  min-width: 0;
+}
+
+.teacher-dashboard-header h1 {
+  margin: 0 0 5px;
+
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.teacher-dashboard-header p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.teacher-dashboard-header p strong {
+  color: #ffffff;
+}
+
+/* =========================================================
+   LOGOUT BUTTON
+   ========================================================= */
+
+.teacher-logout-button {
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #c94c4c;
+  color: #ffffff;
+
+  padding: 11px 20px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.teacher-logout-button:hover {
+  background: #a83232;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(168, 50, 50, 0.2);
+}
+
+.teacher-logout-button:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.teacher-dashboard-content {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 38px 25px 65px;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
+
+.teacher-dashboard-intro {
+  margin-bottom: 28px;
+  padding: 27px 30px;
+
+  background: #ffffff;
+
+  border-left: 5px solid #198754;
+  border-radius: 10px;
+
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.055);
+}
+
+.teacher-dashboard-intro h2 {
+  margin: 0 0 10px;
+
+  color: #146c43;
+
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.teacher-dashboard-intro p {
+  margin: 7px 0;
+
+  color: #5f6b66;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.teacher-dashboard-intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   ERROR MESSAGE
+   ========================================================= */
+
+.teacher-dashboard-error {
+  margin-bottom: 20px;
+  padding: 14px 17px;
+
+  background: #f9e8e8;
+  color: #a83232;
+
+  border: 1px solid #e4b7b7;
+  border-left: 4px solid #c94c4c;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
+
+.teacher-dashboard-success {
+  margin-bottom: 20px;
+  padding: 14px 17px;
+
+  background: #e8f4ed;
+  color: #146c43;
+
+  border: 1px solid #b8d7c6;
+  border-left: 4px solid #198754;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   CREATE LESSON CARD
+   ========================================================= */
+
+.teacher-create-lesson-card {
+  margin-bottom: 30px;
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8e5;
+  border-radius: 10px;
+
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.055);
+}
+
+.teacher-create-lesson-card > h2 {
+  margin: 0 0 25px;
+  padding-bottom: 17px;
+
+  color: #146c43;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  border-bottom: 1px solid #e2e8e5;
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.teacher-create-lesson-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.teacher-form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.teacher-form-group label {
+  margin-bottom: 8px;
+
+  color: #263238;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.teacher-form-group input,
+.teacher-form-group select,
+.teacher-form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 12px 13px;
+
+  border: 1px solid #ced8d3;
+  border-radius: 7px;
+
+  background: #ffffff;
+  color: #263238;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.teacher-form-group input::placeholder,
+.teacher-form-group textarea::placeholder {
+  color: #98a39e;
+}
+
+.teacher-form-group input:focus,
+.teacher-form-group select:focus,
+.teacher-form-group textarea:focus {
+  border-color: #198754;
+
+  box-shadow:
+    0 0 0 3px rgba(25, 135, 84, 0.1);
+}
+
+.teacher-form-group input:disabled,
+.teacher-form-group select:disabled,
+.teacher-form-group textarea:disabled {
+  background: #f1f3f2;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.teacher-form-group textarea {
+  min-height: 125px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   DATE + TIME ROW
+   ========================================================= */
+
+.teacher-form-row {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+/* =========================================================
+   CREATE BUTTON
+   ========================================================= */
+
+.teacher-create-lesson-button {
+  align-self: flex-start;
+
+  min-width: 230px;
+
+  margin-top: 3px;
+
+  padding: 13px 22px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #198754;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.teacher-create-lesson-button:hover {
+  background: #146c43;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 12px rgba(20, 108, 67, 0.18);
+}
+
+.teacher-create-lesson-button:active {
+  transform: translateY(0);
+}
+
+.teacher-create-lesson-button:disabled {
+  background: #8eb9a4;
+  cursor: not-allowed;
+  opacity: 0.75;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================================================
+   CREATED LESSONS CARD
+   ========================================================= */
+
+.teacher-lessons-card {
+  margin-bottom: 30px;
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8e5;
+  border-radius: 10px;
+
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.055);
+}
+
+/* =========================================================
+   LESSONS HEADER
+   ========================================================= */
+
+.teacher-lessons-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #e2e8e5;
+}
+
+.teacher-lessons-header h2 {
+  margin: 0 0 6px;
+
+  color: #146c43;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.teacher-lessons-header p {
+  margin: 0;
+
+  color: #6c757d;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.teacher-refresh-button {
+  flex-shrink: 0;
+
+  padding: 9px 17px;
+
+  border: 1px solid #198754;
+  border-radius: 7px;
+
+  background: #ffffff;
+  color: #146c43;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.teacher-refresh-button:hover {
+  background: #e8f4ed;
+  transform: translateY(-1px);
+}
+
+.teacher-refresh-button:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   EMPTY LESSONS
+   ========================================================= */
+
+.teacher-empty-lessons {
+  padding: 40px 25px;
+
+  text-align: center;
+
+  background: #f8faf9;
+
+  border: 1px dashed #cbd8d1;
+  border-radius: 9px;
+
+  color: #6c757d;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   LESSON LIST
+   ========================================================= */
+
+.teacher-lessons-list {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+/* =========================================================
+   LESSON ITEM
+   ========================================================= */
+
+.teacher-lesson-item {
+  min-width: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7e4;
+  border-radius: 9px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.teacher-lesson-item:hover {
+  transform: translateY(-2px);
+
+  border-color: #b8cec1;
+
+  box-shadow:
+    0 7px 20px rgba(0, 0, 0, 0.065);
+}
+
+.teacher-lesson-item > div {
+  min-width: 0;
+  flex: 1;
+}
+
+.teacher-lesson-item h3 {
+  margin: 0 0 13px;
+
+  color: #146c43;
+
+  font-size: 18px;
+  line-height: 1.35;
+
+  word-break: break-word;
+}
+
+.teacher-lesson-item p {
+  margin: 7px 0;
+
+  color: #65716c;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.teacher-lesson-item p strong {
+  color: #34443d;
+}
+
+/* =========================================================
+   LESSON STATUS
+   ========================================================= */
+
+.teacher-lesson-status {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 76px;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  background: #f1f3f2;
+  color: #5f6b66;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+/*
+   The JSX currently produces:
+
+   teacher-lesson-status scheduled
+   teacher-lesson-status live
+   teacher-lesson-status completed
+   teacher-lesson-status cancelled
+*/
+
+.teacher-lesson-status.scheduled {
+  background: #e8f4ed;
+  color: #146c43;
+  border: 1px solid #b8d7c6;
+}
+
+.teacher-lesson-status.live {
+  background: #f9e8e8;
+  color: #a83232;
+  border: 1px solid #e4b7b7;
+}
+
+.teacher-lesson-status.completed {
+  background: #eeeeee;
+  color: #555555;
+  border: 1px solid #d5d5d5;
+}
+
+.teacher-lesson-status.cancelled {
+  background: #f9e8e8;
+  color: #a83232;
+  border: 1px solid #e4b7b7;
+}
+
+/* =========================================================
+   CLASSROOM INFORMATION
+   ========================================================= */
+
+.teacher-dashboard-info {
+  margin-bottom: 30px;
+  padding: 30px;
+
+  background: #e8f4ed;
+
+  border: 1px solid #cce5d7;
+  border-radius: 10px;
+
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.045);
+}
+
+.teacher-dashboard-info > h2 {
+  margin: 0 0 22px;
+
+  color: #146c43;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   INFORMATION GRID
+   ========================================================= */
+
+.teacher-info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 17px;
+}
+
+/* =========================================================
+   INFORMATION CARDS
+   ========================================================= */
+
+.teacher-info-grid > div {
+  min-width: 0;
+
+  background: #ffffff;
+
+  border-radius: 9px;
+
+  border-top: 4px solid #198754;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.045);
+}
+
+.teacher-info-grid > div:nth-child(2),
+.teacher-info-grid > div:nth-child(4) {
+  border-top-color: #c94c4c;
+}
+
+.teacher-info-grid > div h3 {
+  margin: 0 0 9px;
+
+  color: #146c43;
+
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.teacher-info-grid > div:nth-child(2) h3,
+.teacher-info-grid > div:nth-child(4) h3 {
+  color: #a83232;
+}
+
+.teacher-info-grid > div p {
+  margin: 0;
+
+  color: #6c757d;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.teacher-dashboard-footer {
+  width: 100%;
+
+  padding: 22px 20px;
+
+  box-sizing: border-box;
+
+  background: #146c43;
+  color: #ffffff;
+
+  text-align: center;
+}
+
+.teacher-dashboard-footer p {
+  margin: 0;
+
+  font-size: 13px;
+
+  opacity: 0.95;
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.teacher-dashboard-loading {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f4f6f5;
+
+  color: #146c43;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .teacher-dashboard-header {
+    padding: 20px 30px;
+  }
+
+  .teacher-dashboard-content {
+    padding: 32px 22px 55px;
+  }
+
+  .teacher-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .teacher-lessons-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 750px) {
+  .teacher-dashboard-header {
+    padding: 20px;
+  }
+
+  .teacher-dashboard-header h1 {
+    font-size: 24px;
+  }
+
+  .teacher-dashboard-content {
+    padding: 25px 18px 45px;
+  }
+
+  .teacher-create-lesson-card,
+  .teacher-lessons-card,
+  .teacher-dashboard-info {
+    padding: 24px;
+  }
+
+  .teacher-form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .teacher-dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    padding: 20px;
+  }
+
+  .teacher-dashboard-header h1 {
+    font-size: 23px;
+  }
+
+  .teacher-dashboard-header p {
+    font-size: 13px;
+  }
+
+  .teacher-logout-button {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .teacher-dashboard-content {
+    padding: 20px 15px 40px;
+  }
+
+  .teacher-dashboard-intro {
+    padding: 21px;
+
+    margin-bottom: 20px;
+  }
+
+  .teacher-dashboard-intro h2 {
+    font-size: 21px;
+  }
+
+  .teacher-dashboard-intro p {
+    font-size: 13px;
+  }
+
+  .teacher-create-lesson-card,
+  .teacher-lessons-card,
+  .teacher-dashboard-info {
+    padding: 20px;
+
+    margin-bottom: 20px;
+  }
+
+  .teacher-create-lesson-card > h2,
+  .teacher-lessons-header h2,
+  .teacher-dashboard-info > h2 {
+    font-size: 20px;
+  }
+
+  .teacher-create-lesson-card form {
+    gap: 17px;
+  }
+
+  .teacher-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-create-lesson-button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .teacher-lessons-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .teacher-refresh-button {
+    width: 100%;
+  }
+
+  .teacher-lesson-item {
+    flex-direction: column;
+
+    padding: 18px;
+  }
+
+  .teacher-lesson-status {
+    align-self: flex-start;
+  }
+
+  .teacher-info-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .teacher-info-grid > div {
+    padding: 18px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .teacher-dashboard-header {
+    padding: 18px 15px;
+  }
+
+  .teacher-dashboard-header h1 {
+    font-size: 21px;
+  }
+
+  .teacher-dashboard-content {
+    padding: 18px 12px 35px;
+  }
+
+  .teacher-dashboard-intro,
+  .teacher-create-lesson-card,
+  .teacher-lessons-card,
+  .teacher-dashboard-info {
+    padding: 17px;
+  }
+
+  .teacher-form-group input,
+  .teacher-form-group select,
+  .teacher-form-group textarea {
+    font-size: 13px;
+  }
+
+  .teacher-lesson-item {
+    padding: 16px;
+  }
+
+  .teacher-lesson-item h3 {
+    font-size: 17px;
+  }
+}

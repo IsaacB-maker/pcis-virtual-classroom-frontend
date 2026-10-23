@@ -1,0 +1,495 @@
+
+.recorded-lessons {
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px;
+  box-sizing: border-box;
+  background: #f4f6f5;
+}
+
+.recorded-lessons-header {
+  max-width: 1200px;
+  margin: 0 auto 25px;
+}
+
+.recorded-lessons-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #198754;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.recorded-lessons-header h2 {
+  margin: 0;
+  color: #1f2933;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.recorded-lessons-header p {
+  margin: 8px 0 0;
+  color: #667085;
+  font-size: 15px;
+}
+
+/* SEARCH AND FILTERS */
+
+.recorded-lessons-tools {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.recorded-search-box {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  background: #ffffff;
+  border: 1px solid #d8dee3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.search-icon {
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.recorded-search-box input {
+  width: 100%;
+  height: 48px;
+  padding: 0 45px 0 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1f2933;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.recorded-search-box input::placeholder {
+  color: #98a2b3;
+}
+
+.clear-search {
+  position: absolute;
+  right: 12px;
+  border: none;
+  background: transparent;
+  color: #667085;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.clear-search:hover {
+  color: #c94c4c;
+}
+
+.subject-filter {
+  min-width: 190px;
+}
+
+.subject-filter select {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d8dee3;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #344054;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* STATUS */
+
+.recorded-status {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 45px 25px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e1e5e8;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.recorded-status .status-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.recorded-status h3 {
+  margin: 0 0 8px;
+  color: #344054;
+  font-size: 20px;
+}
+
+.recorded-status p {
+  margin: 0;
+  color: #667085;
+  line-height: 1.6;
+}
+
+.recorded-error {
+  border-left: 5px solid #c94c4c;
+}
+
+.recorded-empty {
+  border-left: 5px solid #198754;
+}
+
+.recorded-spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 15px;
+  border: 4px solid #e8f4ed;
+  border-top-color: #198754;
+  border-radius: 50%;
+  animation: recordedSpin 0.8s linear infinite;
+}
+
+@keyframes recordedSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* CLEAR SEARCH */
+
+.clear-results-button {
+  margin-top: 20px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #198754;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.clear-results-button:hover {
+  background: #146c43;
+}
+
+/* LESSON GRID */
+
+.recorded-lessons-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.recorded-lesson-card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e1e5e8;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(31, 41, 51, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.recorded-lesson-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(31, 41, 51, 0.1);
+}
+
+/* THUMBNAIL */
+
+.recorded-thumbnail {
+  position: relative;
+  height: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f4ed;
+  overflow: hidden;
+}
+
+.thumbnail-icon {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px;
+  border-radius: 50%;
+  background: #198754;
+  color: #ffffff;
+  font-size: 25px;
+  box-shadow: 0 5px 15px rgba(25, 135, 84, 0.25);
+}
+
+.recorded-duration {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* CARD CONTENT */
+
+.recorded-card-content {
+  padding: 20px;
+}
+
+.recorded-subject {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #198754;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.recorded-card-content h3 {
+  margin: 0;
+  color: #1f2933;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.recorded-description {
+  margin: 10px 0 0;
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.55;
+
+  display: -webkit-box;
+  
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.recorded-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 15px;
+  color: #667085;
+  font-size: 12px;
+}
+
+.watch-recording-button {
+  width: 100%;
+  min-height: 43px;
+  margin-top: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #198754;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.watch-recording-button:hover:not(:disabled) {
+  background: #146c43;
+}
+
+.watch-recording-button:disabled {
+  background: #cbd5d1;
+  cursor: not-allowed;
+}
+
+/* VIDEO MODAL */
+
+.recording-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.82);
+  box-sizing: border-box;
+}
+
+.recording-modal-content {
+  position: relative;
+  width: min(100%, 1000px);
+  max-height: 94vh;
+  overflow-y: auto;
+  padding: 25px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.close-recording-modal {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #f4f6f5;
+  color: #344054;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close-recording-modal:hover {
+  background: #f9e8e8;
+  color: #a83232;
+}
+
+.recording-modal-heading {
+  padding-right: 45px;
+  margin-bottom: 18px;
+}
+
+.recording-modal-heading span {
+  color: #198754;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.recording-modal-heading h2 {
+  margin: 5px 0 0;
+  color: #1f2933;
+  font-size: 24px;
+}
+
+.recording-video-player {
+  display: block;
+  width: 100%;
+  max-height: 65vh;
+  border-radius: 10px;
+  background: #111827;
+}
+
+.video-unavailable {
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 10px;
+  background: #f4f6f5;
+}
+
+.video-unavailable div {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.video-unavailable h3 {
+  margin: 0 0 8px;
+  color: #344054;
+}
+
+
+.recording-status {
+  margin: 10px 16px;
+  padding: 10px 14px;
+  border: 1px solid #cfe8d8;
+  border-radius: 8px;
+  background: #f0faf3;
+  color: #146c43;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.recording-status:empty {
+  display: none;
+}
+
+
+.video-unavailable p {
+  margin: 0;
+  color: #667085;
+}
+
+.recording-modal-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #e1e5e8;
+  color: #667085;
+  font-size: 13px;
+}
+
+/* TABLET */
+
+@media (max-width: 950px) {
+  .recorded-lessons {
+    padding: 25px;
+  }
+
+  .recorded-lessons-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .recorded-lessons {
+    padding: 18px 12px;
+  }
+
+  .recorded-lessons-header h2 {
+    font-size: 24px;
+  }
+
+  .recorded-lessons-tools {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .subject-filter {
+    min-width: 0;
+  }
+
+  .recorded-lessons-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .recorded-thumbnail {
+    height: 160px;
+  }
+
+  .recording-modal {
+    padding: 10px;
+  }
+
+  .recording-modal-content {
+    padding: 18px;
+    max-height: 96vh;
+  }
+
+  .recording-modal-heading h2 {
+    font-size: 20px;
+  }
+
+  .recording-modal-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

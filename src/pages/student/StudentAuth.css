@@ -1,0 +1,391 @@
+
+/* =========================================================
+   PCIS STUDENT PORTAL — SHARED AUTHENTICATION DESIGN
+   Colours: Green, white, light grey and soft red
+   ========================================================= */
+
+.student-auth-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 42px 20px;
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(25, 135, 84, 0.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 95% 92%,
+      rgba(201, 76, 76, 0.08),
+      transparent 28%
+    ),
+    #f4f7f5;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #26352b;
+}
+
+.student-auth-card {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 470px;
+  padding: 38px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e2eae4;
+  border-radius: 22px;
+  box-shadow: 0 20px 55px rgba(29, 73, 45, 0.10);
+  animation: pcis-card-appear 0.45s ease-out;
+}
+
+.student-auth-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #198754, #65b989, #c94c4c);
+}
+
+@keyframes pcis-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SCHOOL BRAND */
+
+.student-auth-brand {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.student-auth-logo {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 17px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #198754, #146c43);
+  color: #ffffff;
+  font-size: 35px;
+  font-weight: 900;
+  box-shadow: 0 9px 22px rgba(25, 135, 84, 0.23);
+}
+
+.student-auth-brand p {
+  margin: 0 0 9px;
+  color: #198754;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.student-auth-brand h1 {
+  margin: 0;
+  color: #243b2c;
+  font-size: 29px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.student-auth-brand span {
+  display: block;
+  margin-top: 8px;
+  color: #718076;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+}
+
+/* INTRODUCTION */
+
+.student-auth-intro {
+  margin: 0 0 25px;
+  color: #657168;
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* LOGIN AND REGISTRATION FORMS */
+
+.student-auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.student-auth-card label {
+  margin-top: 9px;
+  color: #35483b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.student-auth-card input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 15px;
+  border: 1px solid #dce5de;
+  border-radius: 10px;
+  background: #fbfdfb;
+  color: #26352b;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.student-auth-card input::placeholder {
+  color: #a0aaa3;
+}
+
+.student-auth-card input:focus {
+  outline: none;
+  border-color: #198754;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.10);
+}
+
+/* PRIMARY BUTTONS */
+
+.student-auth-card button,
+.student-portal-button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 51px;
+  margin-top: 17px;
+  padding: 14px 18px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: #198754;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 750;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.student-auth-card button:hover,
+.student-portal-button:hover {
+  background: #146c43;
+  box-shadow: 0 7px 17px rgba(25, 135, 84, 0.18);
+  transform: translateY(-1px);
+}
+
+.student-auth-card button:focus-visible,
+.student-portal-button:focus-visible,
+.student-portal-home-link:focus-visible {
+  outline: 3px solid rgba(25, 135, 84, 0.30);
+  outline-offset: 3px;
+}
+
+.student-auth-card button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* SUCCESS AND ERROR MESSAGES */
+
+.student-auth-message {
+  box-sizing: border-box;
+  margin-bottom: 17px;
+  padding: 14px 15px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.student-auth-message.success {
+  border: 1px solid #c5e5d0;
+  background: #edf8f0;
+  color: #146c43;
+}
+
+.student-auth-message.error {
+  border: 1px solid #f0cccc;
+  background: #fff1f1;
+  color: #a83232;
+}
+
+/* FOOTER LINKS ON LOGIN AND REGISTER */
+
+.student-auth-footer {
+  margin: 25px 0 0;
+  color: #778178;
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.student-auth-footer a {
+  color: #198754;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.student-auth-footer a:hover {
+  color: #146c43;
+  text-decoration: underline;
+}
+
+/* =========================================================
+   STUDENT PORTAL LANDING PAGE
+   ========================================================= */
+
+.student-portal-card {
+  max-width: 510px;
+  padding: 43px 40px 35px;
+}
+
+.student-portal-card .student-auth-intro {
+  max-width: 370px;
+  margin: 0 auto 28px;
+}
+
+.student-portal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.student-portal-actions .student-portal-button {
+  min-height: 55px;
+  margin-top: 0;
+  letter-spacing: 0.2px;
+}
+
+.student-portal-button.secondary {
+  border-color: #cce4d4;
+  background: #edf8f0;
+  color: #146c43;
+}
+
+.student-portal-button.secondary:hover {
+  border-color: #198754;
+  background: #e1f2e7;
+  box-shadow: 0 6px 16px rgba(25, 135, 84, 0.08);
+}
+
+.student-portal-card .student-auth-footer {
+  margin-top: 25px;
+  font-size: 12px;
+}
+
+.student-portal-home-link {
+  display: block;
+  width: fit-content;
+  margin: 22px auto 0;
+  color: #198754;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.student-portal-home-link:hover {
+  color: #146c43;
+  text-decoration: underline;
+}
+
+
+/* Student full name input */
+.student-auth-card input,
+.student-auth-card select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 48px;
+  padding: 0 14px;
+  margin-bottom: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333333;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Keep the class dropdown consistent with the name input */
+.student-auth-card select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+/* Matching focus effect */
+.student-auth-card input:focus,
+.student-auth-card select:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.12);
+}
+
+
+/* SMALL SCREENS */
+
+@media (max-width: 600px) {
+  .student-auth-page {
+    align-items: flex-start;
+    padding: 24px 14px;
+  }
+
+  .student-auth-card,
+  .student-portal-card {
+    max-width: 100%;
+    padding: 32px 23px 27px;
+    border-radius: 17px;
+  }
+
+  .student-auth-logo {
+    width: 63px;
+    height: 63px;
+    border-radius: 19px;
+    font-size: 31px;
+  }
+
+  .student-auth-brand h1 {
+    font-size: 25px;
+  }
+
+  .student-auth-intro {
+    font-size: 13px;
+  }
+}
+
+/* RESPECT USERS WHO PREFER REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .student-auth-card {
+    animation: none;
+  }
+
+  .student-auth-card button,
+  .student-portal-button,
+  .student-auth-card input {
+    transition: none;
+  }
+}

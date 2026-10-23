@@ -1,0 +1,56 @@
+
+.individual-classroom {
+  width: 100%;
+  min-height: 100vh;
+  background: #f4f6f5;
+}
+
+.classroom-tabs {
+  width: 100%;
+  padding: 15px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e1e5e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.classroom-tab {
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 1px solid #d8dee3;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-tab:hover {
+  border-color: #198754;
+  color: #146c43;
+}
+
+.classroom-tab.active {
+  background: #198754;
+  border-color: #198754;
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .classroom-tabs {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .classroom-tab {
+    flex: 1;
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+}
+

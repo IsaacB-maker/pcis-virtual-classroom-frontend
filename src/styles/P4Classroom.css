@@ -1,0 +1,313 @@
+/* =========================================================
+   PCIS VIRTUAL CLASSROOM
+   P4 CLASSROOM
+========================================================= */
+
+.p4-classroom {
+  min-height: 100vh;
+  background: #f5f8f6;
+  color: #173b2b;
+}
+
+.p4-header {
+  background: #198754;
+  color: white;
+  min-height: 78px;
+  padding: 15px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.p4-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.p4-logo {
+  width: 48px;
+  height: 48px;
+  background: white;
+  color: #198754;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.p4-brand h1 {
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+
+.p4-brand p {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.p4-class-badge {
+  background: #c94c4c;
+  color: white;
+  padding: 9px 17px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.p4-main {
+  width: 90%;
+  max-width: 1050px;
+  margin: auto;
+  padding: 35px 0 60px;
+}
+
+.p4-back-button {
+  display: inline-block;
+  color: #198754;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 35px;
+}
+
+.p4-back-button:hover {
+  color: #a83232;
+  text-decoration: underline;
+}
+
+.p4-title-section {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 35px;
+}
+
+.p4-label {
+  display: inline-block;
+  color: #198754;
+  background: #e8f4ed;
+  padding: 7px 13px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 13px;
+}
+
+.p4-title-section h2 {
+  font-size: 40px;
+  color: #173b2b;
+  margin-bottom: 13px;
+}
+
+.p4-title-section p {
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.p4-status-card,
+.p4-section {
+  background: white;
+  border: 1px solid #dce7e1;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.p4-status-card {
+  border-left: 5px solid #198754;
+  padding: 20px 22px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p4-status-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.p4-status-dot {
+  width: 13px;
+  height: 13px;
+  background: #198754;
+  border-radius: 50%;
+}
+
+.p4-status-left h3 {
+  color: #146c43;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.p4-status-left p {
+  color: #718096;
+  font-size: 13px;
+}
+
+.p4-status-badge {
+  background: #e8f4ed;
+  color: #198754;
+  padding: 7px 12px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.p4-section {
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.p4-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.p4-small-label {
+  display: block;
+  color: #c94c4c;
+  font-size: 10px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.p4-section-header h3 {
+  font-size: 21px;
+  color: #173b2b;
+}
+
+.p4-section-class {
+  background: #e8f4ed;
+  color: #198754;
+  padding: 7px 13px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.p4-recording-badge {
+  background: #f9e8e8;
+  color: #a83232;
+  padding: 7px 13px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.p4-empty-card {
+  background: #f8faf9;
+  border: 1px dashed #cfded5;
+  border-radius: 12px;
+  padding: 42px 20px;
+  text-align: center;
+}
+
+.p4-empty-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: #e8f4ed;
+  color: #198754;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.p4-empty-card h4 {
+  color: #173b2b;
+  margin-bottom: 8px;
+}
+
+.p4-empty-card p {
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.p4-footer {
+  background: #146c43;
+  color: white;
+  padding: 22px 6%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.p4-footer span {
+  background: #c94c4c;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+@media (max-width: 800px) {
+  .p4-title-section h2 {
+    font-size: 34px;
+  }
+
+  .p4-main {
+    width: 92%;
+  }
+}
+
+@media (max-width: 550px) {
+  .p4-header {
+    padding: 12px 4%;
+  }
+
+  .p4-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .p4-brand h1 {
+    font-size: 13px;
+  }
+
+  .p4-brand p {
+    font-size: 10px;
+  }
+
+  .p4-class-badge {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+
+  .p4-main {
+    width: 92%;
+  }
+
+  .p4-title-section h2 {
+    font-size: 29px;
+  }
+
+  .p4-title-section p {
+    font-size: 13px;
+  }
+
+  .p4-status-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .p4-section {
+    padding: 18px;
+  }
+
+  .p4-section-header h3 {
+    font-size: 18px;
+  }
+
+  .p4-footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
