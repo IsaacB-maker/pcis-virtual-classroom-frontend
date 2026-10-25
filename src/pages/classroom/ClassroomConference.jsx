@@ -35,6 +35,40 @@ export default function ClassroomConference({ className }) {
     teacher,
   } = useClassroomData(className);
 
+    // Read the registered student saved during student login.
+  const [loggedInStudent] = useState(() => {
+    if (typeof window === "undefined") {
+      return null;
+    }
+
+    try {
+      const savedStudent = sessionStorage.getItem("pcisStudent");
+
+      if (!savedStudent) {
+        return null;
+      }
+
+      const parsedStudent = JSON.parse(savedStudent);
+
+      // Support either a direct student record or a wrapped response.
+      return parsedStudent?.student || parsedStudent;
+    } catch (err) {
+      console.error(
+        "Could not read the logged-in student:",
+        err
+      );
+
+      return null;
+    }
+  });
+
+  const studentName = String(
+    loggedInStudent?.full_name ||
+    loggedInStudent?.name ||
+    loggedInStudent?.student_name ||
+    ""
+  ).trim() || "Student";
+
   const {
     videoRef,
     streamRef,
@@ -1539,16 +1573,16 @@ export default function ClassroomConference({ className }) {
                   type="button"
                   disabled={!hasLiveRoom || !roomId || !sessionId}
                   onClick={() => {
-                    if (!hasLiveRoom || !roomId) return;
+                      if (!hasLiveRoom || !roomId) return;
 
-                    connectSocket(
-                      roomId,
-                      "Student",
-                      "student"
-                    );
+                        connectSocket(
+                          roomId,
+                          studentName,
+                          "student"
+                        );
 
-                    setJoined(true);
-                  }}
+                      setJoined(true);
+                    }}
                   className="control-btn green-btn lobby-join-btn"
                 >
                   ▶ Join Classroom
@@ -1663,7 +1697,7 @@ export default function ClassroomConference({ className }) {
                       />
 
                       <div className="student-badge">
-                        You {!microphoneOn && "🔇"}
+                        {studentName} (You) {!microphoneOn && "🔇"}
                       </div>
 
                       {handRaised && (
@@ -1813,7 +1847,7 @@ export default function ClassroomConference({ className }) {
                     <span className="p-name">
                       {isTeacher
                         ? activeTeacherName
-                        : "You (Student)"}
+                        : `${studentName} (You)`}
                     </span>
 
                     <span

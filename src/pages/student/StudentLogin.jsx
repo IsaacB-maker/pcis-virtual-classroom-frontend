@@ -103,10 +103,22 @@ export default function StudentLogin() {
       }
 
       // Preserve the existing dashboard's expected student information.
-      sessionStorage.setItem(
-        "pcisStudent",
-        JSON.stringify(data.student)
-      );
+      const student = data.student.student || data.student;
+
+const normalizedStudent = {
+  ...student,
+  full_name: String(
+    student.full_name ||
+    student.name ||
+    student.student_name ||
+    form.full_name.trim()
+  ).trim(),
+};
+
+sessionStorage.setItem(
+  "pcisStudent",
+  JSON.stringify(normalizedStudent)
+);
 
       navigate("/student/dashboard", { replace: true });
     } catch (err) {
