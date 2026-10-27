@@ -530,6 +530,32 @@
 }
 
 
+/* SCHOOL ADMINISTRATION PORTAL */
+
+.home-portal-card.administration-portal-card {
+  border-top: 4px solid #198754;
+}
+
+.administration-portal-card .home-portal-icon {
+  background: #e8f4ed;
+  color: #146c43;
+}
+
+.administration-portal-card .home-portal-label {
+  color: #146c43;
+}
+
+.administration-portal-card .home-portal-action {
+  color: #146c43;
+}
+
+.home-portal-card.administration-portal-card:hover {
+  border-color: #198754;
+  box-shadow: 0 10px 28px rgb(25 135 84 / 12%);
+}
+
+
+
 /* =========================================================
    SMALL MOBILE
    ========================================================= */

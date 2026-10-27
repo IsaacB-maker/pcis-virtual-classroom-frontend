@@ -13,10 +13,34 @@ import { useClassroomMedia } from "./useClassroomMedia";
 import { useWebRTC } from "./useWebRTC";
 import { useClassroomSocket } from "./useClassroomSocket";
 import "../../styles/ClassroomConference.css";
-
 const API_BASE_URL = "http://127.0.0.1:8000/api";
+const STUDENT_API_BASE_URL = "http://localhost:8000/api/students";
 const MAX_CHAT_MESSAGE_LENGTH = 2000;
 
+async function getStudentCsrfToken() {
+  const response = await fetch(
+    `${STUDENT_API_BASE_URL}/csrf/`,
+    {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+      },
+    }
+  );
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok || !data.csrfToken) {
+    throw new Error(
+      data.detail ||
+        data.error ||
+        "Could not verify your student session. Please log in again."
+    );
+  }
+
+  return data.csrfToken;
+}
 export default function ClassroomConference({ className }) {
   const navigate = useNavigate();
 
@@ -85,6 +109,8 @@ export default function ClassroomConference({ className }) {
   const mountedRef = useRef(false);
   const teacherAutoJoinRoomRef = useRef(null);
   const endingRef = useRef(false);
+  const attendanceRecordIdRef = useRef(null);
+
 
   const screenStreamRef = useRef(null);
   const stopMediaRef = useRef(stopMedia);
@@ -105,6 +131,8 @@ export default function ClassroomConference({ className }) {
   const [isSavingRecording, setIsSavingRecording] = useState(false);
   const [recordingError, setRecordingError] = useState("");
   const [recordingMessage, setRecordingMessage] = useState("");
+  const [joiningClass, setJoiningClass] = useState(false);
+  const [attendanceError, setAttendanceError] = useState("");
 
   const [handRaised, setHandRaised] = useState(false);
   const [isScreenSharing, setIsScreenSharing] = useState(false);
@@ -1296,19 +1324,143 @@ export default function ClassroomConference({ className }) {
     navigate,
   ]);
 
-  const handleLeaveClass = useCallback(() => {
+  
+const handleStudentJoinClass = useCallback(async () => {
+  if (
+    isTeacher ||
+    !hasLiveRoom ||
+    !roomId ||
+    !sessionId ||
+    !liveLesson?.id ||
+    joiningClass
+  ) {
+    return;
+  }
+
+  setJoiningClass(true);
+  setAttendanceError("");
+
+  try {
+    // Obtain a fresh Django CSRF token.
+    const csrfToken = await getStudentCsrfToken();
+
+    // Save attendance before joining the classroom socket.
+    const response = await fetch(
+      `${STUDENT_API_BASE_URL}/attendance/join/`,
+      {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "X-CSRFToken": csrfToken,
+        },
+        body: JSON.stringify({
+          lesson_id: liveLesson.id,
+        }),
+      }
+    );
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(
+        data.detail ||
+          data.error ||
+          data.message ||
+          "Attendance could not be recorded. Please try again."
+      );
+    }
+
+    if (!data.attendance?.id) {
+      throw new Error(
+        "The server did not return an attendance record. Please try again."
+      );
+    }
+
+    // Keep the ID so we can record the departure later.
+    attendanceRecordIdRef.current = data.attendance.id;
+
+    // Only connect after attendance has been saved.
+    connectSocket(roomId, studentName, "student");
+    setJoined(true);
+  } catch (err) {
+    console.error("Student classroom join failed:", err);
+
+    setAttendanceError(
+      err.message ||
+        "Could not join the classroom. Please try again."
+    );
+  } finally {
+    setJoiningClass(false);
+  }
+}, [
+  isTeacher,
+  hasLiveRoom,
+  roomId,
+  sessionId,
+  liveLesson,
+  joiningClass,
+  connectSocket,
+  studentName,
+  setJoined,
+]);
+
+const handleLeaveClass = useCallback(async () => {
+  try {
+    // Teachers use the separate End Class handler.
+    // Only students submit an attendance departure.
+    if (!isTeacher && attendanceRecordIdRef.current) {
+      const csrfToken = await getStudentCsrfToken();
+
+      const response = await fetch(
+        `${STUDENT_API_BASE_URL}/attendance/leave/`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "X-CSRFToken": csrfToken,
+          },
+          body: JSON.stringify({
+            attendance_id: attendanceRecordIdRef.current,
+          }),
+        }
+      );
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(
+          data.detail ||
+            data.error ||
+            data.message ||
+            "Could not save the attendance departure."
+        );
+      }
+
+      attendanceRecordIdRef.current = null;
+    }
+  } catch (err) {
+    // Do not leave the camera, microphone, or socket running
+    // just because the attendance request failed.
+    console.error("Student attendance departure failed:", err);
+  } finally {
     releaseLocalMedia();
     closeAllPeerConnections();
     disconnectSocket();
     setJoined(false);
     navigate(-1);
-  }, [
-    releaseLocalMedia,
-    closeAllPeerConnections,
-    disconnectSocket,
-    setJoined,
-    navigate,
-  ]);
+  }
+}, [
+  isTeacher,
+  releaseLocalMedia,
+  closeAllPeerConnections,
+  disconnectSocket,
+  setJoined,
+  navigate,
+]);
 
   // Clean up connections when the component unmounts.
   useEffect(() => {
@@ -1569,24 +1721,32 @@ export default function ClassroomConference({ className }) {
                   </div>
                 </div>
 
-                <button
-                  type="button"
-                  disabled={!hasLiveRoom || !roomId || !sessionId}
-                  onClick={() => {
-                      if (!hasLiveRoom || !roomId) return;
+               <button
+  type="button"
+  disabled={
+    !hasLiveRoom ||
+    !roomId ||
+    !sessionId ||
+    joiningClass
+  }
+  onClick={handleStudentJoinClass}
+  className="control-btn green-btn lobby-join-btn"
+>
+  {joiningClass ? "Joining..." : "▶ Join Classroom"}
+</button>
 
-                        connectSocket(
-                          roomId,
-                          studentName,
-                          "student"
-                        );
-
-                      setJoined(true);
-                    }}
-                  className="control-btn green-btn lobby-join-btn"
-                >
-                  ▶ Join Classroom
-                </button>
+{attendanceError && (
+  <p
+    role="alert"
+    style={{
+      color: "#a83232",
+      marginTop: "10px",
+      textAlign: "center",
+    }}
+  >
+    {attendanceError}
+  </p>
+)}
               </>
             )}
           </div>

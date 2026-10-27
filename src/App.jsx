@@ -20,34 +20,27 @@ import RecordedLessons from "./pages/RecordedLessons";
 import StudentLogin from "./pages/student/StudentLogin";
 import StudentDashboard from "./pages/student/StudentDashboard";
 
+import AdminLogin from "./pages/administration/AdminLogin";
+import AdminDashboard from "./pages/administration/AdminDashboard";
+
 function App() {
   return (
     <Routes>
-      {/* HOME */}
+      {/* SCHOOL HOMEPAGE */}
       <Route path="/" element={<Home />} />
 
-      {/* PRIMARY */}
+      {/* PRIMARY SCHOOL */}
       <Route path="/primary" element={<Primary />} />
 
-      {/* STUDENT PORTAL OPENS LOGIN DIRECTLY */}
-      <Route
-        path="/student"
-        element={<StudentLogin />}
-      />
+      {/* STUDENT PORTAL */}
+      <Route path="/student" element={<StudentLogin />} />
+      <Route path="/student/login" element={<StudentLogin />} />
 
-      {/* STUDENT LOGIN */}
-      <Route
-        path="/student/login"
-        element={<StudentLogin />}
-      />
-
-      {/* REDIRECT OLD REGISTRATION URL TO LOGIN */}
       <Route
         path="/student/register"
         element={<Navigate to="/student/login" replace />}
       />
 
-      {/* STUDENT DASHBOARD */}
       <Route
         path="/student/dashboard"
         element={<StudentDashboard />}
@@ -62,19 +55,10 @@ function App() {
       <Route path="/primary/p6" element={<P6Classroom />} />
       <Route path="/primary/p7" element={<P7Classroom />} />
 
-      {/* TEACHER DASHBOARD */}
-      <Route
-        path="/teacher"
-        element={<TeacherDashboard />}
-      />
+      {/* TEACHER PORTAL */}
+      <Route path="/teacher" element={<TeacherDashboard />} />
+      <Route path="/teacher/login" element={<TeacherLogin />} />
 
-      {/* TEACHER LOGIN */}
-      <Route
-        path="/teacher/login"
-        element={<TeacherLogin />}
-      />
-
-      {/* TEACHER LIVE CLASSROOM */}
       <Route
         path="/teacher/classroom/:className"
         element={<ClassroomConference />}
@@ -84,6 +68,28 @@ function App() {
       <Route
         path="/recorded-lessons"
         element={<RecordedLessons />}
+      />
+
+      {/* SCHOOL ADMINISTRATION PORTAL */}
+      <Route
+        path="/administration"
+        element={<Navigate to="/administration/login" replace />}
+      />
+
+      <Route
+        path="/administration/login"
+        element={<AdminLogin />}
+      />
+
+      <Route
+        path="/administration/dashboard"
+        element={<AdminDashboard />}
+      />
+
+      {/* UNKNOWN URLS RETURN TO THE HOMEPAGE */}
+      <Route
+        path="*"
+        element={<Navigate to="/" replace />}
       />
     </Routes>
   );
